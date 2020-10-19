@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Reporting Dashboard</title>
+
+  <!-- Load Bootstrap 4 -->
+  <!-- CSS only -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <!-- Load Chart JS -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js'></script>
+  <!-- Load Font Awesome -->
+  <script src="https://use.fontawesome.com/releases/v5.14.0/js/all.js" data-auto-replace-svg></script>
+
+  <!-- Load our stylesheet -->
+
+  <style></style>
+
+  <!-- CSS only -->
+
+  <link rel="stylesheet" type="text/css" HREF="../css/styles.css">
+
+</head>
+
+<body>
+
+<!-- Code. -->
+
+
+  <div><h1>Let's Analyze!</h1></div>
+  
+  <table>
+
+    <thead>
+
+    <tr><b>
+
+      <th> </th>
+
+    </tr></b>
+
+    </thead>
+
+      <td>Total Subscribers</td><td><canvas id="inprogress" width="400" height="150"></canvas></td>
+
+      <td>Subscriber Growth</td><td><canvas id="returned" width="400" height="150"></canvas></td>
+
+     </td>
+
+
+  </table>
+
+  <table>
+
+    <thead>
+
+    <tr><b>
+
+      <th> </th>
+
+    </tr></b>
+
+    </thead>
+
+      <td>Views</td><td><canvas id="views" width="400" height="250"></canvas></td>
+
+      <td>Minutes Watched</td><td><canvas id="minuteswatched" width="400" height="150"></canvas>
+
+ </table>
+
+     </table>
+
+  <table>
+
+    <thead>
+
+    <tr><b>
+
+      <th> </th>
+
+    </tr></b>
+
+    </thead>
+
+      <td>Likes</td><td><canvas id="likes" width="400" height="150"></canvas></td>
+
+      <td>Comments</td><td><canvas id="comments" width="400" height="150"></canvas></td>
+
+ </table>
+
+ <table>
+
+    <thead>
+
+    <tr><b>
+
+      <th> </th>
+
+    </tr></b>
+
+    </thead>
+
+
+
+      <td>Posts</td><td><canvas id="posts" width="400" height="150"></canvas></td>
+
+      <td>Shares</td><td><canvas id="shares" width="400" height="150"></canvas></td>
+
+  </table>
+
+  <script>
+ 
+        // bar chart data
+
+            var barData = {
+                labels : [ "April","May","June","July","August","September" ],
+                datasets : [
+                    {
+                        fillColor : "#48A497",
+                        strokeColor : "#48A4D1",
+                        data : {{ number_subscribers }}
+                    }
+                ]
+            }
+
+            // get bar chart canvas
+
+            var inprogress = document.getElementById("inprogress").getContext("2d");
+
+            // draw bar chart
+
+            new Chart(inprogress).Bar(barData);
+
+            // bar chart data
+
+            var barData2 = {
+                labels : [ "April","May","June","July","August","September" ],
+                datasets : [
+                    {
+                        fillColor : "#48A497",
+                        strokeColor : "#48A4D1",
+                        data : {{ subscribers }}
+                    }
+                ]
+            }
+            // get bar chart canvas
+            
+            var returned = document.getElementById("returned").getContext("2d");
+            
+            // draw bar chart
+           
+            new Chart(returned).Bar(barData2);
+
+                        // bar chart data
+ 
+            var barData3 = {
+                labels : [ "April","May","June","July","August","September" ],
+                datasets : [
+                    {
+                        fillColor : "#48A497",
+                        strokeColor : "#48A4D1",
+                        data : {{ views }}
+                    }
+                ]
+            }
+            // get bar chart canvas
+            
+            var views = document.getElementById("views").getContext("2d");
+            
+            // draw bar chart
+           
+            new Chart(views).Bar(barData3);
+                        // bar chart data
+
+            var barData4 = {
+                labels : [ "April","May","June","July","August","September" ],
+                datasets : [
+                    {
+                        fillColor : "#48A497",
+                        strokeColor : "#48A4D1",
+                        data : {{ minutes_watched }}
+                    }
+                ]
+            }
+            // get bar chart canvas
+            
+            var minuteswatched = document.getElementById("minuteswatched").getContext("2d");
+            
+            // draw bar chart
+           
+            new Chart(minuteswatched).Bar(barData4);
+
+
+           
+            var barData5 = {
+                labels : [ "April","May","June","July","August","September" ],
+                datasets : [
+                    {
+                        fillColor : "#48A497",
+                        strokeColor : "#48A4D1",
+                        data : {{ likes }}
+                    }
+                ]
+            }
+            // get bar chart canvas
+            
+            var likes = document.getElementById("likes").getContext("2d");
+            
+            // draw bar chart
+           
+            new Chart(likes).Bar(barData5);
+
+
+            var barData6 = {
+                labels : [ "April","May","June","July","August","September"  ],
+                datasets : [
+                    {
+                        fillColor : "#48A497",
+                        strokeColor : "#48A4D1",
+                        data : {{ comments }}
+                    }
+                ]
+            }
+            // get bar chart canvas
+            
+            var comments = document.getElementById("comments").getContext("2d");
+            
+            // draw bar chart
+           
+            new Chart(comments).Bar(barData6);
+
+
+            var barData7 = {
+                labels : [ "April","May","June","July","August","September"  ],
+                datasets : [
+                    {
+                        fillColor : "#48A497",
+                        strokeColor : "#48A4D1",
+                        data : {{ posts }}
+                    }
+                ]
+            }
+            // get bar chart canvas
+            
+            var posts = document.getElementById("posts").getContext("2d");
+            
+            // draw bar chart
+           
+            new Chart(posts).Bar(barData7);
+
+
+            var barData8 = {
+                labels : [ "April","May","June","July","August","September"  ],
+                datasets : [
+                    {
+                        fillColor : "#48A497",
+                        strokeColor : "#48A4D1",
+                        data : {{ shares }}
+                    }
+                ]
+            }
+            // get bar chart canvas
+            
+            var shares = document.getElementById("shares").getContext("2d");
+            
+            // draw bar chart
+           
+            new Chart(shares).Bar(barData8);
+
+
+       </script>
+
+
+<!-- JS-based components. -->
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</body>
+
+</html>
